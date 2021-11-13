@@ -13,7 +13,7 @@
     <button type="button" name="button" id="h1Button">CLICK ME</button>
     <script type="text/javascript">
       $("#h1Button").click(function () {
-        $.ajax("hello.txt").done(function (data) {
+        $.ajax("info.txt").done(function (data) {
           $("#holder1").html(data);
         }).fail(function () {
           alert("failed to pull data");
