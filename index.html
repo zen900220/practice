@@ -1,20 +1,24 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Test Page</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <style media="screen">
-      .circle{
-        width:100px;
-        height:100px;
-        border-radius:50%;
-        margin:10px;
-        background-color:red;
-      }
+
     </style>
   </head>
   <body>
-    <div class="circle"></div>
+    <div class="" id="holder1"></div>
+    <button type="button" name="button" id="h1Button">CLICK ME</button>
+    <script type="text/javascript">
+      $("#h1Button").click(function () {
+        $.ajax("hello.txt").done(function (data) {
+          $("#holder1").html(data);
+        }).fail(function () {
+          alert("failed to pull data");
+        });
+      });
+    </script>
   </body>
 </html>
