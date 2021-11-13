@@ -1,2 +1,1 @@
-hello this is some info!!!!
-this was first written in github!
+hello this is some new info
