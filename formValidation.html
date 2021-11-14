@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <meta charset="utf-8">
+    <title>Test</title>
+    <style media="screen">
+      #wrapper{
+        margin: 0px auto;
+        width: 700px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      table{
+        width: 500px;
+      }
+      label{
+        font-size: 200%;
+      }
+      input{
+        height: 26px;
+        width: 220px;
+      }
+      #submit{
+        display: block;
+        margin-top: 40px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrapper">
+      <table>
+        <tr>
+          <td><label for="email">Email:</label></td>
+          <td><input type="text" name="email" id="email" value=""></td>
+        </tr>
+        <tr>
+          <td><label for="tele">Mobile:</label></td>
+          <td><input type="text" name="tele" id="tele" value=""></td>
+        </tr>
+        <tr>
+          <td><label for="pswd">Password:</label></td>
+          <td><input type="password" name="pswd" id="pswd" value=""></td>
+        </tr>
+        <tr>
+          <td><label for="confirmPswd">Confirm Password:</label></td>
+          <td><input type="password" name="confirmPswd" id="confirmPswd" value=""></td>
+        </tr>
+      </table>
+      <input type="submit" name="submit" id="submit" value="Sign Up">
+      <p id="result"></p>
+    </div>
+    <script type="text/javascript">
+      let report="";
+      let mailExp= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      let teleExp=/[0-9]{10}/;
+      $("#submit").click(function(){
+        if(($("#email").val()).match(mailExp)==null){
+          report=report+"• Invalid Email";
+        }
+        if (($("#tele").val()).match(teleExp)==null) {
+          report=report+"• Invalid Mobile";
+        }
+        if ($("#confirmPswd").val()!=$("#pswd").val()) {
+          report=report+"• Password doesnt match";
+        }
+        if(report==""){
+          $("#result").html("Congratulations! Sign Up Successful.");
+          $("#result").css("color","green");
+        }
+        else {
+          $("#result").html(report);
+          $("#result").css("color","red");
+        }
+        report="";
+      });
+    </script>
+  </body>
+</html>
